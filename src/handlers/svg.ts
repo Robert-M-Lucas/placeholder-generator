@@ -8,7 +8,6 @@ export class SvgHandler extends FileHandler {
 	}
 
 	handle(path: string): void {
-		vscode.window.showInformationMessage(`SVG file create attempt: ${path}`);
 		unlinkSync(path);
 		writeFileSync(path, `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 300 300">
 

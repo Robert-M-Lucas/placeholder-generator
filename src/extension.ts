@@ -1,11 +1,10 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
-import { lstatSync } from 'fs';
 import * as vscode from 'vscode';
+import { lstatSync } from 'fs';
 import { FileHandler } from './FileHandler';
 import { JpgHandler } from './handlers/jpg';
 import { PngHandler } from './handlers/png';
 import { SvgHandler } from './handlers/svg';
+import { PdfHandler } from './handlers/pdf';
 
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed
@@ -17,9 +16,10 @@ export function activate(context: vscode.ExtensionContext) {
 		vscode.window.showInformationMessage(`Event`);
 
 		const handlers: FileHandler[] = [
-			new PngHandler(),
-			new JpgHandler(),
-			new SvgHandler()
+			new PngHandler(context),
+			new JpgHandler(context),
+			new SvgHandler(context),
+			new PdfHandler(context)
 		];
 
 		event.files.map((f) => f.fsPath).filter((f) => lstatSync(f).isFile()).forEach((f: string) => {
