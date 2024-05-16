@@ -3,7 +3,7 @@
   "displayName": "Placeholder Generator",
   "description": "Automatically fill in created files (e.g. pngs) with valid content",
   "publisher": "robert-m-lucas",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "engines": {
     "vscode": "^1.89.0"
   },
